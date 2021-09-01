@@ -1,0 +1,32 @@
+<%= form_with(model: oenologist_score, local: true) do |form| %>
+  <% if oenologist_score.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(oenologist_score.errors.count, "error") %> prohibited this oenologist_score from being saved:</h2>
+
+      <ul>
+      <% oenologist_score.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <div class="field">
+    <%= form.label :oenologist_id %>
+    <%= form.collection_select :oenologist_id, Oenologist.all.order(age: :desc), :id, :name, class: 'input' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :wine_id %>
+    <%= form.collection_select :wine_id, Wine.all, :id, :name, class: 'input' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :score %>
+    <%= form.number_field :score, max: 100, min: 1 %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

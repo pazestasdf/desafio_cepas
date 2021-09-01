@@ -1,0 +1,2 @@
+module OenologistScoresHelper
+end

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Wine:</strong>
+  <%= @oenologist_score.wine.name %>
+</p>
+
+<p>
+  <strong>Oenologist:</strong>
+  <%= @oenologist_score.oenologist.name %>
+</p>
+
+<p>
+  <strong>Score:</strong>
+  <%= @oenologist_score.score %>
+</p>
+
+<%= link_to 'Edit', edit_oenologist_score_path(@oenologist_score) %> |
+<%= link_to 'Back', oenologist_scores_path %>

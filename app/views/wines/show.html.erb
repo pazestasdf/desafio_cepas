@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @wine.name %>
+</p>
+
+<p>
+  <strong>Oenologists' Score:</strong>
+  <% @wine.oenologist_scores.order(age: :desc).each do |score| %>
+    <%= score.oenologist.name %>: <%= score.score%><br />
+  <% end %>
+</p>
+
+<p>
+  <strong>Peter's Score:</strong>
+  <%= @wine.score %>
+</p>
+
+<%= link_to 'Edit', edit_wine_path(@wine) %> |
+<%= link_to 'Back', wines_path %>
